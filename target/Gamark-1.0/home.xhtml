@@ -1,0 +1,35 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    template="template.xhtml">
+    <ui:param name="pageTitle" value="Example"/>
+    <ui:define name="content">
+        <link href="resources/css/home.css" rel="stylesheet" type="text/css"/>
+
+        <div align="center" class="main-content">
+            <div class="slides">
+                <ui:repeat value="#{featured.featureds}" var="item">
+                    <a>
+                        <img class="mySlides" id="lpanel" src="resources/img/home/featured/#{item.id}.png"/>
+                    </a>
+                </ui:repeat>
+            </div>
+            
+            <div class="dots">
+                <ui:repeat value="#{featured.featureds}" var="item">
+                    <a onclick="currentDiv(#{item.id})">
+                        <img class="dot" src="resources/img/home/dot.png"/>
+                    </a>
+                </ui:repeat>
+            </div>
+            
+            <a href="faces/build1.xhtml">
+                <img id="rpanel" src="resources/img/home/build.png"/>
+            </a>
+            
+        </div>
+        <script src="resources/js/slider.js" type="text/javascript"></script>
+    </ui:define>
+</ui:composition>

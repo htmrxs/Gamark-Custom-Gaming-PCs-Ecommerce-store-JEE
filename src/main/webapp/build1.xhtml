@@ -1,0 +1,110 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+    template="buildTemplate.xhtml"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:define name="buildstep">
+    <div>
+        <link href="resources/css/step.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/radio.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/card.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/switch.css" rel="stylesheet" type="text/css"/>
+
+        <div class="dots" >
+            <div class="bar"/>
+            <a>
+                <img class="dot" src="resources/img/home/dotcurrent.png"/>
+            </a>
+            <a>
+                <img class="dot" src="resources/img/home/dotempty.png"/>
+            </a>
+            <a>
+                <img class="dot" src="resources/img/home/dotempty.png"/>
+            </a>
+            <a>
+                <img class="dot" src="resources/img/home/dotempty.png"/>
+            </a>
+            <a>
+                <img class="dot" src="resources/img/home/dotempty.png"/>
+            </a>
+            <a>
+                <img class="dot" src="resources/img/home/dotempty.png"/>
+            </a>
+            <a>
+                <img class="dot" src="resources/img/home/dotempty.png"/>
+            </a>
+        </div>
+        
+        <h1>Motherboard</h1>
+        
+        <h:form>
+            <h:inputText a:placeholder="Searh" class="txt1" value="#{motherboard.search}"/>
+        </h:form>
+        <div class="flex-container">
+            <div id="brand">
+                <h2>Brand</h2>
+                <h:form>
+                    <p:selectOneButton styleClass="selectBtn" value="#{motherboard.brand}">
+                        <f:selectItem itemLabel="Asus" itemValue="Asus"/>
+                        <f:selectItem itemLabel="MSI" itemValue="MSI" />
+                        <p:ajax update="@this" oncomplete="submit()"/>
+                    </p:selectOneButton>
+                </h:form>
+            </div>
+            <div class="listProducts" id="list">
+                <button name="prev" onclick="listPrev()">go to previous div</button>
+                <h:form>
+                    <ui:repeat value="#{motherboard.byBrand}" var="item" varStatus="myVarStatus">
+                        <div class="wrapper product">
+                            <div class="product-img">
+                                <img src="http://bit.ly/2tMBBTd" height="100%" width="100%"/>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-text">
+                                        <h1>#{item.name}</h1>
+                                        <p>#{item.description}</p>
+                                        <h3>#{item.price}$</h3>
+                                </div>
+                                <c:if test="#{sessionscoped.build.done}">
+                                    <p:commandButton value="#{item eq sessionscoped.build.motherboard ? 'Selected' : 'Select'}" action="confirm.xhtml?faces-redirect=true">
+                                    <f:actionListener binding="#{build.setMotherboard(item)}">
+                                    <f:ajax/></f:actionListener>
+                                    </p:commandButton>
+                                </c:if>
+                                <c:if test="#{not build.done}">
+                                    <p:commandButton value="#{item eq sessionscoped.build.motherboard ? 'Selected' : 'Select'}" action="build2.xhtml?faces-redirect=true">
+                                    <f:actionListener binding="#{build.setMotherboard(item)}">
+                                    <f:ajax/></f:actionListener>
+                                    </p:commandButton>
+                                </c:if>
+                            </div>
+                        </div>
+                    </ui:repeat>
+                </h:form>
+                <button name="next" onclick="listNext()">go to next div</button>
+            </div>
+            <div id="price">
+                <h2>Price</h2>
+                <h:form>
+                    <p:selectOneButton styleClass="selectBtn" value="#{cpu.ord}">
+                        <f:selectItem itemLabel="Asc" itemValue="Asc"/>
+                        <f:selectItem itemLabel="Desc" itemValue="desc" />
+                        <p:ajax update="@this" oncomplete="submit()"/>
+                    </p:selectOneButton>
+                </h:form>
+            </div>
+        </div>        
+        <c:if test="#{not build.done}">
+        <div class="control">
+            <a id="nextS" href="build2.xhtml?faces-redirect=true" ><span>Next</span></a>
+        </div> 
+        </c:if>
+        
+        <script src="resources/js/card.js" type="text/javascript"></script>
+    </div>
+    </ui:define>
+</ui:composition>

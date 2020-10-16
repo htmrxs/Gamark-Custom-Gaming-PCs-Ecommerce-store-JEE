@@ -1,0 +1,110 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+    template="buildTemplate.xhtml"
+    xmlns:c="http://xmlns.jcp.org/jsp/jstl/core">
+    <ui:define name="buildstep">
+    <div>
+        <link href="resources/css/step.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/radio.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/card.css" rel="stylesheet" type="text/css"/>
+        <link href="resources/css/switch.css" rel="stylesheet" type="text/css"/>
+
+        <div class="dots" >
+            <div class="bar"/>
+            <a>
+                <img class="dot" src="resources/img/home/dot.png"/>
+            </a>
+            <a>
+                <img class="dot" src="resources/img/home/dot.png"/>
+            </a>
+            <a>
+                <img class="dot" src="resources/img/home/dot.png"/>
+            </a>
+            <a>
+                <img class="dot" src="resources/img/home/dot.png"/>
+            </a>
+            <a>
+                <img class="dot" src="resources/img/home/dot.png"/>
+            </a>
+            <a>
+                <img class="dot" src="resources/img/home/dotcurrent.png"/>
+            </a>
+            <a>
+                <img class="dot" src="resources/img/home/dotempty.png"/>
+            </a>
+        </div>
+        
+        <h1>Powersupply</h1>
+        
+        <h:form>
+            <h:inputText a:placeholder="Searh" class="txt1" id="hiredAfter" value="#{psu.search}"/>
+        </h:form>
+        <div class="flex-container">
+            <div id="brand">
+                <h2>Brand</h2>
+                <h:form>
+                    <p:selectOneButton styleClass="selectBtn" value="#{psu.brand}">
+                        <f:selectItem itemLabel="Corsair" itemValue="Corsair"/>
+                        <f:selectItem itemLabel="Cooler Master" itemValue="Cooler Master" />
+                        <p:ajax update="@this" oncomplete="submit()"/>
+                    </p:selectOneButton>
+                </h:form>
+            </div>
+            <div class="listProducts" id="list">
+                <button name="prev" onclick="listPrev()">go to previous div</button>
+                <h:form>
+                    <ui:repeat value="#{psu.byBrand}" var="item" varStatus="myVarStatus">
+                        <div class="wrapper product">
+                            <div class="product-img">
+                                <img src="http://bit.ly/2tMBBTd" height="100%" width="100%"/>
+                            </div>
+                            <div class="product-info">
+                                <div class="product-text">
+                                        <h1>#{item.name}</h1>
+                                        <p>#{item.description}</p>
+                                </div>
+                                <c:if test="#{build.done}">
+                                    <p:commandButton value="#{item eq build.psu ? 'Selected' : 'Select'}" action="confirm.xhtml?faces-redirect=true">
+                                    <f:actionListener binding="#{build.setPsu(item)}">
+                                    <f:ajax/></f:actionListener>
+                                    </p:commandButton>
+                                </c:if>
+                                <c:if test="#{not build.done}">
+                                    <p:commandButton value="#{item eq build.psu ? 'Selected' : 'Select'}" action="build7.xhtml?faces-redirect=true">
+                                    <f:actionListener binding="#{build.setPsu(item)}">
+                                    <f:ajax/></f:actionListener>
+                                    </p:commandButton>
+                                </c:if>
+                            </div>
+                        </div>
+                    </ui:repeat>
+                </h:form>
+                <button name="next" onclick="listNext()">go to next div</button>
+            </div>
+            <div id="price">
+                <h2>Price</h2>
+                <h:form>
+                    <p:selectOneButton styleClass="selectBtn" value="#{cpu.ord}">
+                        <f:selectItem itemLabel="Asc" itemValue="Asc"/>
+                        <f:selectItem itemLabel="Desc" itemValue="desc" />
+                        <p:ajax update="@this" oncomplete="submit()"/>
+                    </p:selectOneButton>
+                </h:form>
+            </div>
+        </div>        
+        <c:if test="#{not build.done}">
+        <div class="control">
+            <a id="prevS" href="build5.xhtml"><span>Previous</span></a>
+            <a id="nextS" href="build7.xhtml"><span>Next</span></a>
+        </div> 
+        </c:if>
+        
+        <script src="resources/js/card.js" type="text/javascript"></script>
+    </div>
+    </ui:define>
+</ui:composition>

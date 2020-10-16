@@ -1,0 +1,25 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+    template="template.xhtml"
+    xmlns:p="http://primefaces.org/ui">
+    <ui:param name="pageTitle" value="Example"/>
+    <ui:define name="content">
+        <link href="resources/css/login.css" rel="stylesheet" type="text/css"/>
+            <div id="login_form">
+                <h1>Login</h1>
+                <h:form>
+                    <h:inputText a:placeholder="Username" class="txt1" value="#{motherboard.search}"/><br/>
+                    <h:inputText a:placeholder="Password" class="txt1" value="#{motherboard.search}"/><br/>
+                    <p:commandButton class="btn" value="Login"/>
+                </h:form>
+                
+                <span id='create_account'>
+                    <a href="register.xhtml">Create your account ➡ </a>
+                </span>
+            </div>
+    </ui:define>
+</ui:composition>

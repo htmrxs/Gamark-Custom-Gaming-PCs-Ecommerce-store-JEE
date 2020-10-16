@@ -1,0 +1,53 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:p="http://primefaces.org/ui"
+    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+    template="buildTemplate.xhtml">
+    <ui:define name="buildstep">
+    <div>
+        <link href="resources/css/confirm.css" rel="stylesheet" type="text/css"/>
+        <div class="dots" >
+            <div class="bar"/>
+            <a>
+                <img class="dot" src="resources/img/home/dot.png"/>
+            </a>
+            <a>
+                <img class="dot" src="resources/img/home/dot.png"/>
+            </a>
+            <a>
+                <img class="dot" src="resources/img/home/dot.png"/>
+            </a>
+            <a>
+                <img class="dot" src="resources/img/home/dot.png"/>
+            </a>
+            <a>
+                <img class="dot" src="resources/img/home/dot.png"/>
+            </a>
+            <a>
+                <img class="dot" src="resources/img/home/dot.png"/>
+            </a>
+            <a>
+                <img class="dot" src="resources/img/home/dot.png"/>
+            </a>
+        </div>    
+        <div class="buildContainer">
+                <img id="confirmBuild" src="resources/img/confirm/confirmBuild.png"/> 
+                <a id="chassis" href="build7.xhtml">#{build.chassis.name} </a><br/>
+                <a id="ram" href="build4.xhtml">#{build.ram.name} </a><br/>
+                <a id="cpu" href="build2.xhtml">#{build.cpu.name} </a><br/>
+                <a id="motherboard" href="build1.xhtml">#{build.motherboard.name}</a><br/>
+                <a id="gpu" href="build3.xhtml">#{build.gpu.name} </a><br/>
+                <a id="storage" href="build5.xhtml">#{build.storage.name} </a><br/>
+                <a id="psu" href="build6.xhtml">#{build.psu.name} </a><br/>
+        </div>
+        
+        <div class="control">
+            <h1 id="price">Price #{build.price}$</h1>
+            <a id="nextS" onclick="#{build.clearAll()}" href="home.xhtml"><span>Purchase</span></a>
+        </div>        
+    </div>
+    </ui:define>
+</ui:composition>

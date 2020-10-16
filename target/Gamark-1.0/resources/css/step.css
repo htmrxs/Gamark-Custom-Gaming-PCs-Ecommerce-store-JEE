@@ -1,0 +1,61 @@
+body
+{
+    height: 80%;
+}
+
+h1, h2, h3
+{
+    margin: 20px auto 5px auto;
+    color: #D3D3D3;
+    text-align: center;
+    font-size:3rem;
+}
+h2{font-size:2rem;}
+h3
+{
+    font-size:1.5rem;
+    display: inline;
+    padding : 25px;
+}
+
+.txt1
+{
+    color: #D3D3D3;
+    font-family: 'Dungeon';
+    font-size: 20px;
+    text-align: center;
+    
+    border-radius: 20px;
+    border: 3px solid #D3D3D9;
+    
+    background: #2C2C2C;
+    margin: 20px 40%;
+    width:20%;
+}
+
+#brand
+{
+    width:25%;
+    text-align: center;
+    border-right: 3px solid #D3D3D9;
+}
+#price
+{
+    width:25%;
+    text-align: center;
+    border-left: 3px solid #D3D3D9;
+}
+#list
+{
+    width:50%;
+    text-align: center;
+    padding:0 75px;
+}
+
+.flex-container 
+{
+    height: 570px;
+    margin-left: 2%;
+    display: flex;
+    flex-wrap: nowrap;
+}

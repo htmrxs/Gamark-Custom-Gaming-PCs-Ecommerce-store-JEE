@@ -1,0 +1,43 @@
+.main-content
+{
+    padding-top: 4.5%;
+    padding-bottom: 0px;
+}
+
+.mySlides 
+    {display:none}
+
+.slides
+    {display: inline;}
+
+#lpanel
+    {width: 55%;}
+
+#rpanel
+    {width: 20.2%;}
+
+@media (max-width: 1000px) 
+{
+    .main-content
+        {padding-top: 60px;}
+    
+    #lpanel
+    {
+        margin-left: -25%;
+        width: 150%;
+    }
+
+    #rpanel
+    {
+        width: 80%;
+        margin-top: 10%;
+        margin-bottom: 10%;
+    }
+}
+
+.dots
+{
+    position: absolute;
+    margin-left:15%;
+    margin-top: -20px;
+}

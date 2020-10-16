@@ -1,0 +1,89 @@
+.container
+{
+    position: relative;
+}
+
+#confirmBuild
+{
+    position: relative;
+    display: block;
+    margin-top: 5%;
+    margin-left: auto;
+    margin-right: auto;
+    width: 50%;
+    color: #F2F2F2;
+}
+
+#motherboard
+{
+    position : absolute;
+    top:515px;
+    left:1320px;
+    padding:0 10px 0 10px;
+    background: #2C2C2C;
+    color: #F2F2F2;
+}
+#cpu
+{
+    position : absolute;
+    top:365px;
+    left:415px;
+    padding:0 10px 0 10px;
+    background: #2C2C2C;
+    color: #F2F2F2;
+}
+#gpu
+{
+    position : absolute;
+    top:560px;
+    left:190px;
+    padding:0 10px 0 10px;
+    background: #2C2C2C;
+    color: #F2F2F2;
+}
+#chassis
+{
+    position : absolute;
+    top:180px;
+    left:910px;
+    padding:0 10px 0 10px;
+    background: #2C2C2C;
+    color: #F2F2F2;
+}
+#ram
+{
+    position : absolute;
+    top:255px;
+    left:1390px;
+    padding:0 10px 0 10px;
+    background: #2C2C2C;
+    color: #F2F2F2;
+}
+#psu
+{
+    position : absolute;
+    top:770px;
+    left:320px;
+    padding:0 10px 0 10px;
+    background: #2C2C2C;
+    color: #F2F2F2;
+}
+#storage
+{
+    position : absolute;
+    top:765px;
+    left:1450px;
+    padding:0 10px 0 10px;
+    background: #2C2C2C;
+    color: #F2F2F2;
+}
+
+#price
+{
+    position : absolute;
+    top: 88%;
+    left:44%;
+    text-align: center;
+    color: #F2F2F2;
+}
+

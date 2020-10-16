@@ -1,0 +1,27 @@
+<ui:composition
+    xmlns="http://www.w3.org/1999/xhtml"
+    xmlns:f="http://java.sun.com/jsf/core"
+    xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:h="http://java.sun.com/jsf/html"
+    xmlns:a="http://xmlns.jcp.org/jsf/passthrough"
+    template="template.xhtml"
+    xmlns:p="http://primefaces.org/ui">
+    <ui:param name="pageTitle" value="Example"/>
+    <ui:define name="content">
+        <link href="resources/css/register.css" rel="stylesheet" type="text/css"/>
+            <div id="login_form">
+                <h1>Register</h1>
+                <h:form>
+                    <h:inputText a:placeholder="Email" class="txt1" value="#{motherboard.search}"/><br/>
+                    <h:inputText a:placeholder="Username" class="txt1" value="#{motherboard.search}"/><br/>
+                    <h:inputText a:placeholder="Password" class="txt1" value="#{motherboard.search}"/><br/>
+                    <h:inputText a:placeholder="Address" class="txt1" value="#{motherboard.search}"/><br/>
+                    <p:commandButton class="btn" value="Register" action="login.xhtml"/>
+                    <p:commandButton value="Register" action="login.xhtml?faces-redirect=true">
+                        <f:actionListener binding="#{usr.createUser(email, username, password, Address)}">
+                    <f:ajax/></f:actionListener>
+                    </p:commandButton>
+                </h:form>
+            </div>
+    </ui:define>
+</ui:composition>

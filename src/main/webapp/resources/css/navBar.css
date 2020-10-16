@@ -1,0 +1,19 @@
+.nav-bar
+{
+    position : absolute;
+    top :0;
+    right:0;
+}
+
+.nav-bar-icons
+{
+    position : absolute;
+    right:5px;
+    top :10px;
+}
+
+.nav-bar-icon
+{
+    color: inherit;
+    padding : 10px 15px 0px 18px;
+}
